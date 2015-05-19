@@ -6,9 +6,14 @@ Eventfd class
 ```ruby
 MRuby::Build.new do |conf|
 
-    # ... (snip) ...
+  # ... (snip) ...
 
-    conf.gem :github => 'matsumoto-r/mruby-eventfd'
+  conf.gem :github => 'matsumoto-r/mruby-eventfd'
+  # for below example
+  conf.gem :github => "iij/mruby-process"
+  conf.gem :github => "iij/mruby-io"
+  conf.gem :github => "iij/mruby-dir"
+
 end
 ```
 ## example
