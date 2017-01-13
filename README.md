@@ -1,4 +1,4 @@
-# mruby-eventfd   [![Build Status](https://travis-ci.org/matsumoto-r/mruby-eventfd.png?branch=master)](https://travis-ci.org/matsumoto-r/mruby-eventfd)
+# mruby-eventfd   [![Build Status](https://travis-ci.org/matsumotory/mruby-eventfd.png?branch=master)](https://travis-ci.org/matsumotory/mruby-eventfd)
 Eventfd class
 ## install by mrbgems
 - add conf.gem line to `build_config.rb`
