@@ -13,6 +13,7 @@
 
 #include "mruby.h"
 #include "mruby/data.h"
+#include "mruby/class.h"
 #include "mrb_eventfd.h"
 #include <sys/eventfd.h>
 
@@ -48,7 +49,7 @@ static mrb_value mrb_eventfd_init(mrb_state *mrb, mrb_value self)
   data->flags = flags;
   data->fd = eventfd(intval, flags);
   data->buf = 0;
-  DATA_PTR(self) = data;
+  mrb_data_init(self, data, &mrb_eventfd_data_type);
 
   return self;
 }
@@ -93,6 +94,7 @@ void mrb_mruby_eventfd_gem_init(mrb_state *mrb)
 {
     struct RClass *eventfd;
     eventfd = mrb_define_class(mrb, "Eventfd", mrb->object_class);
+    MRB_SET_INSTANCE_TT(eventfd, MRB_TT_DATA);
     mrb_define_method(mrb, eventfd, "initialize", mrb_eventfd_init, MRB_ARGS_REQ(2));
     mrb_define_method(mrb, eventfd, "fd", mrb_eventfd_fd, MRB_ARGS_NONE());
     mrb_define_method(mrb, eventfd, "event_read", mrb_eventfd_read, MRB_ARGS_REQ(1));
